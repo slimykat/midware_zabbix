@@ -11,7 +11,7 @@ class D(daemon):
 		self.config = json.load(fp)
 		fp.close()
 
-	def query(selt):
+	def query(self):
 		# record the query time (AKA current time)
 	    t = datetime.datetime.now()
 	    now = t.strftime("%Y%m%d_%H_%M")
@@ -23,18 +23,37 @@ class D(daemon):
 	    time_from = int(time_from.timestamp())
 
 	    # login
-	    zq.login(host)
+	    zabbix= self.config["zabbix"]
+	    zq.login(host=zabbix["host"],User=zabbix["user"],Password=zabbix["password"])
 
 	    # bulk query for each group
 	    config = self.config['probe']
 	    for probe_type, groups in config.items():		# for the definition of the layout
-	    	for dtype, attributes in groups.items():	# plz check the document
+	    	for dtype, itemlist in groups.items():	# plz check the document
+	   
+	    		# send query message, arguments contains these information:
+	    		# 		target(s), group, start_time, end_time
+	    		itemids = itemlist.keys()
+	    		payload = zq.item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)
+
+	    		# set up for file IO
 	    		file_name = str(probe_type)+"@"+now
-	    		t = threading.Thread(target=json2csv, arg=())
-	    		t.start()
+
+	    		# assign the task to another thread
+	    		t = threading.Thread(
+	    			target=json2csv, 
+	    			arg=(payload, itemlist, file_name),
+	    			kwargs={"attr_entry":zabbix["kwargs"][0], "clock_entry":zabbix["kwargs"][1]}
+	    			)
+	    		t.start() # no need to join
 
 	def run(self):
 		self.config_setup()
+
+		logging.debug("config_safe")
+		while(True):
+			logging.debug("running...")
+			time.sleep(3)
 
 		while(True):
 	        self.query()

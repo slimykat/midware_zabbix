@@ -1,0 +1,65 @@
+{
+	"cpu_zabbix":{
+	    "probe_name_idx": [0],
+	    "probe_attr_idx": [1, 2, 3],
+	    "probe_time_idx": 4,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["host", "system_pct", "user_pct", "idle_pct", "datetime", "timestamps"],
+		"probe_server_idx":0
+	},
+	"grafana_log_zabbix":{
+	    "probe_name_idx": [0],
+	    "probe_attr_idx": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+	    "probe_time_idx": 10,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["host", "lvl","msg","uname","method","status","remote_addr","time_ms","size","referer", "datetime", "timestamps"],
+	    "probe_server_idx":0
+	},
+	"ssh_zabbix":{
+	    "probe_name_idx": [0],
+	    "probe_attr_idx": [1, 2],
+	    "probe_time_idx": 3,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["host", "netstat_count", "who_count", "datetime", "timestamps"],
+	    "probe_server_idx":0
+	},
+	"access_log":{
+	    "probe_name_idx": [0],
+	    "probe_attr_idx": [1,2,3,4,5,6,7,8],
+	    "probe_time_idx": 9,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["host","ip","date","timezone","method","http_version","status","length","referrer", "datetime", "timestamps"],
+	    "probe_server_idx":0
+	},
+	"server_cpu":{
+		"probe_name_idx": [0],
+	    "probe_attr_idx": [1,2,3,4],
+	    "probe_time_idx": 5,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["host", "cpu_Utilization", "idle", "system", "user", "datetime", "timestamps"],
+	    "probe_server_idx":0
+	},
+	"server_mem":{
+		"probe_name_idx": [0],
+	    "probe_attr_idx": [1, 2, 3, 4],
+	    "probe_time_idx": 5,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["name", "Available", "Available_pct", "tatal_mem", "mem_Utilization", "datetime", "timestamps"],
+	    "probe_server_idx":0
+	},
+	"server_network":{
+		"probe_name_idx": [0],
+	    "probe_attr_idx": [1, 2],
+	    "probe_time_idx": 3,
+	    "title_time_format": "%Y%m%d_%H_%M",
+		"data_time_format": "%Y%m%d_%H:%M:%S",
+	    "header":["host", "bits_recv", "bits_sent", "datetime", "timestamps"],
+		"probe_server_idx":0
+	}
+}

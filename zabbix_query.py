@@ -1,9 +1,9 @@
-import json, os, requests, logging
+import json, os, requests, logging, sys
 
 prot = {"jsonrpc":"2.0","auth":None,"id":0}
 zabbix_host = ""
-User = ""
-Password = ""
+User = "Admin"
+Password = "zabbix"
 
 def query(jsonrpc):
     #test start
@@ -21,10 +21,10 @@ def query(jsonrpc):
         #    if login(user="",password=""):
         #        return query(jsonrpc)
         #else:
-        exit(1)
+        sys.exit(1)
     return response
 
-def login(host="", user = "Admin", password="zabbix"):
+def login(host="", user = "", password=""):
     # write to global variable if given any
     global zabbix_host, User, Password
     if host :
@@ -64,12 +64,12 @@ def item_hist_get(itemid, dtype, limit=None, time_from=0, time_till = None):
             "limit":limit,
             "time_from": time_from,
             "time_till" : time_till,
-            "sortfield": ["itemids","clock"],
+            "sortfield": ["itemid","clock"],
             "sortorder": "DESC"
     }}}
     result = query(history_jsonrpc)
     if not result['result']:
-        logging.warning("Empty_result")
+        logging.info("Empty_result")
     return result['result']
 """
 History object types to return. (dtype)
