@@ -1,6 +1,6 @@
 """Generic linux daemon base class for python 3.x."""
 
-import sys, os, time, atexit, signal
+import sys, os, time, atexit, signal, logging
 
 class daemon:
 	"""A generic daemon class.
@@ -12,9 +12,10 @@ class daemon:
 	
 	def daemonize(self):
 		"""Deamonize class. UNIX double fork mechanism."""
-
+		logging.debug("daemonizing")
 		try: 
 			pid = os.fork() 
+			logging.info("Daemon_Hi_"+str(os.getpid()))
 			if pid > 0:
 				# exit first parent
 				sys.exit(0) 
@@ -29,15 +30,15 @@ class daemon:
 	
 		# do second fork
 		try: 
-			pid = os.fork() 
+			pid = os.fork()
+			logging.info("Daemon_Hi_"+str(os.getpid()))
 			if pid > 0:
-
 				# exit from second parent
 				sys.exit(0) 
 		except OSError as err: 
 			sys.stderr.write('fork #2 failed: {0}\n'.format(err))
 			sys.exit(1) 
-	
+		
 		# redirect standard file descriptors
 		sys.stdout.flush()
 		sys.stderr.flush()
@@ -48,28 +49,39 @@ class daemon:
 		os.dup2(si.fileno(), sys.stdin.fileno())
 		os.dup2(so.fileno(), sys.stdout.fileno())
 		os.dup2(se.fileno(), sys.stderr.fileno())
-	
+		logging.debug("End_of_dup2")
+
 		# write pidfile
 		atexit.register(self.delpid)
 
 		pid = str(os.getpid())
-		with open(self.pidfile,'w+') as f:
-			f.write(pid + '\n')
-	
+		try:
+			with open(self.pidfile,'w+') as f:
+				f.write(pid + '\n')
+		except:
+			logging.exception("Write_pidfile_failed")
+		logging.info("Daemon_is_now_running_"+pid)
+
 	def delpid(self):
-		os.remove(self.pidfile)
+		logging.info("Daemon_Goodbye_"+str(os.getpid()))
+
+		try:
+			os.remove(self.pidfile)
+		except:
+			pass
 
 	def start(self):
 		"""Start the daemon."""
-
+		logging.debug("starting")
 		# Check for a pidfile to see if the daemon already runs
 		try:
 			with open(self.pidfile,'r') as pf:
 
 				pid = int(pf.read().strip())
+
 		except IOError:
 			pid = None
-	
+		logging.debug("PID:"+str(pid))
 		if pid:
 			message = "pidfile {0} already exist. " + \
 					"Daemon already running?\n"
@@ -78,11 +90,12 @@ class daemon:
 		
 		# Start the daemon
 		self.daemonize()
+		logging.debug("Daemonize_complete")
 		self.run()
 
 	def stop(self):
 		"""Stop the daemon."""
-
+		logging.debug("stopping")
 		# Get the pid from the pidfile
 		try:
 			with open(self.pidfile,'r') as pf:
@@ -109,13 +122,16 @@ class daemon:
 			else:
 				print (str(err.args))
 				sys.exit(1)
+		logging.info("daemon_has_stoped")
 
 	def restart(self):
 		"""Restart the daemon."""
+		logging.debug("restarting")
 		self.stop()
 		self.start()
 
 	def run(self):
+		logging.critical("Why am i here?")
 		"""You should override this method when you subclass Daemon.
 		
 		It will be called after the process has been daemonized by 

@@ -1,0 +1,465 @@
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Goodbye_37859
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37882
+INFO:root:Daemon_Hi_37883
+INFO:root:Daemon_Hi_37883
+INFO:root:Daemon_Hi_37884
+INFO:root:Daemon_Goodbye_37884
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37911
+INFO:root:Daemon_Hi_37912
+INFO:root:Daemon_Hi_37912
+INFO:root:Daemon_Hi_37913
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_Goodbye_37913
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37921
+INFO:root:Daemon_Hi_37922
+INFO:root:Daemon_Hi_37922
+INFO:root:Daemon_Hi_37923
+DEBUG:root:End_of_dup2
+ERROR:root:Daemon_died
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/daemonize.py", line 59, in daemonize
+    with open(self.pidfile,'w+') as f:
+OSError: [Errno 30] Read-only file system: 'pidfile'
+DEBUG:root:Daemon_is_now_running_37923
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting up config
+INFO:root:Daemon_Goodbye_37923
+DEBUG:root:stop
+DEBUG:root:stopping
+DEBUG:root:stop
+DEBUG:root:stopping
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37938
+INFO:root:Daemon_Hi_37939
+INFO:root:Daemon_Hi_37939
+INFO:root:Daemon_Hi_37940
+DEBUG:root:End_of_dup2
+ERROR:root:Daemon_died
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/daemonize.py", line 59, in daemonize
+    with open(self.pidfile,'w+') as f:
+OSError: [Errno 30] Read-only file system: 'pidfile'
+DEBUG:root:Daemon_is_now_running_37940
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+INFO:root:Daemon_Goodbye_37940
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37963
+INFO:root:Daemon_Hi_37964
+INFO:root:Daemon_Hi_37964
+INFO:root:Daemon_Hi_37965
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_37965
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+INFO:root:Daemon_Goodbye_37965
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37971
+INFO:root:Daemon_Hi_37972
+INFO:root:Daemon_Hi_37972
+INFO:root:Daemon_Hi_37973
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_37973
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+ERROR:root:config_failed
+Traceback (most recent call last):
+  File "main.py", line 16, in config_setup
+    fp = open(self.conf_Path)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/miware.conf'
+INFO:root:Daemon_Goodbye_37973
+DEBUG:root:start
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_37976
+INFO:root:Daemon_Hi_37977
+INFO:root:Daemon_Hi_37977
+INFO:root:Daemon_Hi_37978
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_37978
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:stop
+DEBUG:root:stopping
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_38004
+INFO:root:Daemon_Hi_38005
+INFO:root:Daemon_Hi_38005
+INFO:root:Daemon_Hi_38006
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_38006
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_38058
+INFO:root:Daemon_Hi_38059
+INFO:root:Daemon_Hi_38059
+INFO:root:Daemon_Hi_38060
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_38060
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:Send_restart_message
+DEBUG:root:restarting
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_38072
+INFO:root:Daemon_Hi_38073
+INFO:root:Daemon_Hi_38073
+INFO:root:Daemon_Hi_38074
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_38074
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:running...
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+INFO:root:Daemon_Hi_39920
+INFO:root:Daemon_Hi_39921
+INFO:root:Daemon_Hi_39921
+INFO:root:Daemon_Hi_39922
+INFO:root:Daemon_Goodbye_39922
+INFO:root:Daemon_Hi_39936
+INFO:root:Daemon_Hi_39937
+INFO:root:Daemon_Hi_39937
+INFO:root:Daemon_Hi_39938
+INFO:root:Daemon_Goodbye_39938
+INFO:root:Daemon_Hi_40080
+INFO:root:Daemon_Hi_40081
+INFO:root:Daemon_Hi_40081
+INFO:root:Daemon_Hi_40082
+INFO:root:Daemon_Goodbye_40082
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40155
+INFO:root:Daemon_Hi_40156
+INFO:root:Daemon_Hi_40156
+INFO:root:Daemon_Hi_40157
+DEBUG:root:End_of_dup2
+DEBUG:root:Daemon_is_now_running_40157
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+INFO:root:Daemon_Goodbye_40157
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40254
+INFO:root:Daemon_Hi_40257
+INFO:root:Daemon_Hi_40257
+INFO:root:Daemon_Hi_40258
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_40258
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+INFO:root:Daemon_Goodbye_40258
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40408
+INFO:root:Daemon_Hi_40409
+INFO:root:Daemon_Hi_40409
+INFO:root:Daemon_Hi_40410
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_40410
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+INFO:root:Daemon_Goodbye_40410
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40586
+INFO:root:Daemon_Hi_40589
+INFO:root:Daemon_Hi_40589
+INFO:root:Daemon_Hi_40590
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_40590
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:time_set
+INFO:root:Daemon_Goodbye_40590
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40701
+INFO:root:Daemon_Hi_40702
+INFO:root:Daemon_Hi_40702
+INFO:root:Daemon_Hi_40703
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_40703
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:time_set
+ERROR:root:Login_error
+Traceback (most recent call last):
+  File "main.py", line 41, in query
+    zq.login(host=zabbix["host"],User=zabbix["user"], Password=zabbix["password"])
+TypeError: login() got an unexpected keyword argument 'User'
+DEBUG:root:prepared_to_query
+INFO:root:Daemon_Goodbye_40703
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40739
+INFO:root:Daemon_Hi_40740
+INFO:root:Daemon_Hi_40740
+INFO:root:Daemon_Hi_40741
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_40741
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=a0468babe8c20c9e0f27cb4feb543967
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+ERROR:root:Fail_on_write
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/c2v.py", line 10, in json2csv
+    fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
+OSError: [Errno 30] Read-only file system: 'zabbix_probe@20201008_16_16'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:query_safe
+ERROR:root:Fail_on_write
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/c2v.py", line 10, in json2csv
+    fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
+OSError: [Errno 30] Read-only file system: 'zabbix_probe@20201008_16_16'
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=f43cbcd83eff1d8041cbce1cddaf7fea
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+ERROR:root:Fail_on_write
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/c2v.py", line 10, in json2csv
+    fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
+OSError: [Errno 30] Read-only file system: 'zabbix_probe@20201008_16_17'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:query_safe
+ERROR:root:Fail_on_write
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/c2v.py", line 10, in json2csv
+    fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
+OSError: [Errno 30] Read-only file system: 'zabbix_probe@20201008_16_17'
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_40989
+INFO:root:Daemon_Hi_40990
+INFO:root:Daemon_Hi_40990
+INFO:root:Daemon_Hi_40991
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_40991
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=67b41195fdbd0c87039935373bf9cf78
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+ERROR:root:Fail_on_write
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/c2v.py", line 10, in json2csv
+    fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
+OSError: [Errno 30] Read-only file system: 'zabbix_probe@20201008_16_20'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:query_safe
+ERROR:root:Fail_on_write
+Traceback (most recent call last):
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/c2v.py", line 10, in json2csv
+    fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
+OSError: [Errno 30] Read-only file system: 'zabbix_probe@20201008_16_20'
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_41013
+INFO:root:Daemon_Hi_41014
+INFO:root:Daemon_Hi_41014
+INFO:root:Daemon_Hi_41015
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_41015
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=d255606e5c0ed9e517e5eaa6fd7a1745
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:Query_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=098157ea2ee2ccd412e0111cc2890ba7
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:root:Send_restart_message
+DEBUG:root:restarting
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_41103
+INFO:root:Daemon_Hi_41104
+INFO:root:Daemon_Hi_41104
+INFO:root:Daemon_Hi_41105
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_41105
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=618fefc919e8098d8d751b427567939f
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=6311ed028e3457870725dd223217f4ce
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:Query_complete
+DEBUG:root:time_set
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=8834d07e12a17cc31937b36491d1ad3e
+DEBUG:root:prepared_to_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:Query_complete
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
