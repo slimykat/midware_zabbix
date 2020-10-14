@@ -7,6 +7,7 @@ def json2csv(json_list, attribute, file_name, value_entry=["value"], attr_entry=
     if json_list:
         # if not empty
         try:
+            logging.debug("writing_to_"+file_name)
             fp = os.open(file_name, os.O_RDWR|os.O_APPEND|os.O_CREAT)
             # open the given file in append+ mode
             

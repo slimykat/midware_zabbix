@@ -1,6 +1,5 @@
 from daemonize import daemon
-from c2v import json2csv
-import json, os, sys, datetime, time, threading, logging
+import json, os, sys, datetime, time, logging
 import zabbix_query as zq 
 
 
@@ -10,6 +9,7 @@ class D(daemon):
 		self.pidfile = pwd+"/.pidfile"
 		self.conf_Path = pwd+"/midware.conf"
 		self.out_Dir = pwd+"/probe/"
+		self.config = ""
 
 	def config_setup(self):
 		logging.debug("setting_up_config")
@@ -21,54 +21,19 @@ class D(daemon):
 			logging.exception("config_failed")
 			sys.exit(1)
 		logging.debug("config_complete")
-
-	def query(self):
-		# record the query time (AKA current time)
-		t = datetime.datetime.now()
-		now = t.strftime("%Y%m%d_%H_%M")
-
-		# request for all the data within the one minute
-		time_till = datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, 0, 0)
-		time_till = int(time_till.timestamp())
-		time_from = datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, 0, 0) - datetime.timedelta(minutes=1)
-		time_from = int(time_from.timestamp())
-		logging.debug("time_set")
-
-		# login
-		zabbix = self.config["zabbix"]
-		probe = self.config["probe"]
-		try:
-			zq.login(host=zabbix["host"],user=zabbix["user"], password=zabbix["password"])
-		except:
-			logging.exception("Login_error")
-
-		logging.debug("prepared_to_query")
-		# bulk query for each group
-		for probe_type, groups in probe.items():		# for the definition of the layout
-			for dtype, itemlist in groups.items():	# plz check the document
-
-				# send query message, arguments contains these information:
-				# 		target(s), group, start_time, end_time
-				itemids = list(itemlist.keys())
-				payload = zq.item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)
-
-				# set up for file IO
-				file_name = self.out_Dir+str(probe_type)+"@"+now
-
-				# assign the task to another thread
-				t = threading.Thread(
-					target=json2csv, 
-					args=(payload, itemlist, file_name),
-					kwargs={"attr_entry":zabbix["kwargs"][0], "clock_entry":zabbix["kwargs"][1]}
-				)
-				t.start() # no need to join
-		logging.debug("Query_complete")
-
+	
 	def run(self):
 		self.config_setup()
+		zabbix = self.config["zabbix"]
+		zq.login(host=zabbix["host"], user=zabbix["user"], password=zabbix["password"])
+		
 		while(True):
-			#zq.login()
-			self.query()
+			zq.extend_liftime()
+			try:
+				zq.bulk_query(self.config, self.out_Dir)
+			except:
+				logging.exception("Error_while_query")
+				exit(1)
 			now = datetime.datetime.now()
 			delta = datetime.timedelta(minutes=1) - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
 			time.sleep(delta.total_seconds())

@@ -1,4 +1,5 @@
-import json, os, requests, logging, sys
+import json, os, requests, logging, sys, datetime, threading
+from c2v import json2csv
 
 prot = {"jsonrpc":"2.0","auth":None,"id":0}
 zabbix_host = ""
@@ -14,13 +15,6 @@ def query(jsonrpc):
     if("error" in response):
         logging.error(str(response['error']))
 
-        ## if the Session has terminated, re-login
-        #if(response['error']['data'] == 'Session terminated, re-login, please.'):
-        #    logging.warning("Attempt_to_re-login...")
-            # attempt to re-login
-        #    if login(user="",password=""):
-        #        return query(jsonrpc)
-        #else:
         sys.exit(1)
     return response
 
@@ -54,6 +48,20 @@ def login(host="", user = "", password=""):
         return False
     return True
 
+def extend_liftime():
+    life_rpc = {
+        "jsonrpc": "2.0",
+        "method": "user.checkAuthentication",
+        "params": {
+            "sessionid": prot["auth"]
+        },
+        "id": 1
+    }
+    if life_rpc["params"]["sessionid"]:
+        query(life_rpc)
+    else:
+        logging.warning("Run_Without_Login")
+
 def item_hist_get(itemid, dtype, limit=None, time_from=0, time_till = None):
     history_jsonrpc = {**prot, **{
         "method": "history.get",
@@ -81,7 +89,46 @@ Possible values:
 3 - numeric unsigned;
 4 - text. 
 """
+def bulk_query(config, dir_path):
+    # extract from config
+    probe = config["probe"]
+    zabbix = config["zabbix"]
 
+    # record the query time (AKA current time)
+    t = datetime.datetime.now()
+    now = t.strftime("%Y%m%d_%H_%M")
+
+    # request for all the data within the one minute
+    time_till = datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, 0, 0)
+    time_till = int(time_till.timestamp())
+    time_from = datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, 0, 0) - datetime.timedelta(minutes=1)
+    time_from = int(time_from.timestamp())
+
+    logging.debug("prepared_to_query")
+    # bulk query for each group
+    for probe_type, groups in probe.items():        # for the definition of the layout
+        for dtype, itemlist in groups.items():  # plz check the document
+
+            # send query message, arguments contains these information:
+            #       target(s), group, start_time, end_time
+            itemids = list(itemlist.keys())
+            payload = item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)
+
+            # set up for file IO
+            file_name = dir_path+str(probe_type)+"@"+now
+
+            # assign the task to another thread
+            t = threading.Thread(
+                target=json2csv, 
+                args=(payload, itemlist, file_name),
+                kwargs={"attr_entry":zabbix["kwargs"][0], "clock_entry":zabbix["kwargs"][1]}
+            )
+            t.start() # no need to join
+    logging.debug("Query_complete")
+
+##################################################
+# the following functions are used for dev ->
+##################################################
 def hostid_get(host_name_list):
     id_jsonrpc = {**prot, **{
         "method":"host.get", 
