@@ -621,3 +621,347 @@ DEBUG:root:Send_stop_message
 DEBUG:root:stopping
 INFO:root:daemon_has_stoped
 ERROR:root:Unkown argument
+INFO:root:Daemon_Hi_3405
+INFO:root:Daemon_Hi_3407
+INFO:root:Daemon_Hi_3407
+INFO:root:Daemon_Hi_3408
+INFO:root:Daemon_is_now_running_3408
+INFO:root:Daemon_Goodbye_3408
+INFO:root:Daemon_Hi_3421
+INFO:root:Daemon_Hi_3423
+INFO:root:Daemon_Hi_3423
+INFO:root:Daemon_Hi_3424
+INFO:root:Daemon_is_now_running_3424
+INFO:root:Daemon_Goodbye_3424
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_3441
+INFO:root:Daemon_Hi_3443
+INFO:root:Daemon_Hi_3443
+INFO:root:Daemon_Hi_3444
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_3444
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=2323aa88427b0625284818de4b12c191
+INFO:root:Daemon_Goodbye_3444
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_3522
+INFO:root:Daemon_Hi_3524
+INFO:root:Daemon_Hi_3524
+INFO:root:Daemon_Hi_3525
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_3525
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=1c482aab03c1e619e5332d18e704344b
+INFO:root:Daemon_Goodbye_3525
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_3573
+INFO:root:Daemon_Hi_3575
+INFO:root:Daemon_Hi_3575
+INFO:root:Daemon_Hi_3576
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_3576
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=28ebbaf3dc694896990fd1ed6bffe6ed
+ERROR:root:UI_error
+Traceback (most recent call last):
+  File "zabbix_main.py", line 43, in run
+    ui = threading.Thread(target=self.ui_run, args=(self,))
+NameError: name 'threading' is not defined
+INFO:root:Daemon_Goodbye_3576
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_3589
+INFO:root:Daemon_Hi_3591
+INFO:root:Daemon_Hi_3591
+INFO:root:Daemon_Hi_3592
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_3592
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=691572a113c5ea50b1348adae4131791
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_03
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_04
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_04
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_05
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_05
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_06
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_3929
+INFO:root:Daemon_Hi_3931
+INFO:root:Daemon_Hi_3931
+INFO:root:Daemon_Hi_3932
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_3932
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=98891b76e872df7a43d9271cb0be62c6
+INFO:root:UI_is_now_running
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_08
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_08
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_09
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_10
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_10
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_11
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_11
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_12
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_13
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_13
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_14
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_14
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_15
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_4795
+INFO:root:Daemon_Hi_4799
+INFO:root:Daemon_Hi_4799
+INFO:root:Daemon_Hi_4800
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_4800
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=1f6943c2961bae568537c1bfb7a45265
+ERROR:root:UI_error
+Traceback (most recent call last):
+  File "zabbix_main.py", line 48, in run
+    fp.write(zui.show_host())
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/zabbix_UI.py", line 8, in show_host
+    return request.host
+  File "/usr/local/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/usr/local/lib/python3.8/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/usr/local/lib/python3.8/site-packages/flask/globals.py", line 38, in _lookup_req_object
+    raise RuntimeError(_request_ctx_err_msg)
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request.  Consult the documentation on testing for
+information about how to avoid this problem.
+INFO:root:Daemon_Goodbye_4800
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_5105
+INFO:root:Daemon_Hi_5107
+INFO:root:Daemon_Hi_5107
+INFO:root:Daemon_Hi_5108
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_5108
+DEBUG:root:Daemonize_complete
+DEBUG:root:setting_up_config
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=a039427bdce40d89b266b8aafdd2c442
+ERROR:root:UI_error
+Traceback (most recent call last):
+  File "zabbix_main.py", line 49, in run
+    fp.write(zui.show_host())
+  File "/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/zabbix_UI.py", line 8, in show_host
+    return request.host
+  File "/usr/local/lib/python3.8/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/usr/local/lib/python3.8/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/usr/local/lib/python3.8/site-packages/flask/globals.py", line 38, in _lookup_req_object
+    raise RuntimeError(_request_ctx_err_msg)
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request.  Consult the documentation on testing for
+information about how to avoid this problem.
+INFO:root:Daemon_Goodbye_5108
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID:None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_5754
+INFO:root:Daemon_Hi_5756
+INFO:root:Daemon_Hi_5756
+INFO:root:Daemon_Hi_5757
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_5757
+DEBUG:root:Daemonize_complete
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=ffa82d05f9b6f4d6595d73466bb6d6d6
+INFO:root:UI_is_now_running
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_36
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_37
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_37
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_38
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201014_17_38
+DEBUG:root:Query_complete
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped

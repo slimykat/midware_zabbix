@@ -89,8 +89,9 @@ Possible values:
 3 - numeric unsigned;
 4 - text. 
 """
-def bulk_query(config, dir_path):
+def bulk_query(c, dir_path):
     # extract from config
+    config = c.copy()
     probe = config["probe"]
     zabbix = config["zabbix"]
 
@@ -104,7 +105,7 @@ def bulk_query(config, dir_path):
     time_from = datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, 0, 0) - datetime.timedelta(minutes=1)
     time_from = int(time_from.timestamp())
 
-    logging.debug("prepared_to_query")
+    logging.info("Start_query")
     # bulk query for each group
     for probe_type, groups in probe.items():        # for the definition of the layout
         for dtype, itemlist in groups.items():  # plz check the document
