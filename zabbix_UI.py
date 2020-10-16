@@ -17,7 +17,10 @@ def index():
 		)
 
 @app.route('/show', methods=['GET'])
-def show():
-	return json.dumps(app._config["probe"],indent=4)
+def show(pretty="_deFault"):
+	if (pretty=="_deFault"):
+		return json.dumps(app._config["probe"])
+	else:
+		return json.dumps(app._config["probe"],indent=4)
 
 #@app.route('/update', methods=['POST'])

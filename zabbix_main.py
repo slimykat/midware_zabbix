@@ -20,7 +20,7 @@ class D(daemon):
 		except:
 			logging.exception("config_failed")
 			sys.exit(1)
-		if not os.path.is_dir(self.config["zabbix"]["out_Dir"]):
+		if not os.path.isdir(self.config["zabbix"]["out_Dir"]):
 			logging.error("Output_Directory_DNE")
 			sys.exit(1)
 		logging.debug("config_complete")
