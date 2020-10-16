@@ -48,7 +48,7 @@ def login(host="", user = "", password=""):
         return False
     return True
 
-def extend_liftime():
+def extend_lifetime():
     life_rpc = {
         "jsonrpc": "2.0",
         "method": "user.checkAuthentication",
@@ -111,15 +111,15 @@ def bulk_query(c):
     logging.info("Start_query")
     # bulk query for each group
     for probe_type, groups in probe.items():        # for the definition of the layout
+        # set up for file IO
+        file_name = outpath+str(probe_type)+"@"+now
+        
         for dtype, itemlist in groups.items():  # plz check the document
 
             # send query message, arguments contains these information:
-            #       target(s), group, start_time, end_time
+            # def history_get(target(s), group, start_time, end_time)
             itemids = list(itemlist.keys())
-            payload = item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)
-
-            # set up for file IO
-            file_name = outpath+str(probe_type)+"@"+now
+            payload = item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)            
 
             # assign the task to another thread
             t = threading.Thread(

@@ -46,14 +46,14 @@ class D(daemon):
 			sys.exit(1)
 		logging.info("UI_is_now_running")
 
-		while(True):
-			zq.extend_liftime()
+		while(True):	# runs every 1 minute
+			zq.extend_lifetime()
 			try:
 				zq.bulk_query(self.config)
 			except:
 				logging.exception("Error_while_query")
 				sys.exit(1)
-
+			# timer
 			now = datetime.datetime.now()
 			delta = datetime.timedelta(minutes=1) - datetime.timedelta(seconds=now.second, microseconds=now.microsecond)
 			time.sleep(delta.total_seconds())
