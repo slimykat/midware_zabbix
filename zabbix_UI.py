@@ -17,8 +17,8 @@ def index():
 		)
 
 @app.route('/show', methods=['GET'])
-def show(pretty="_deFault"):
-	if (pretty=="_deFault"):
+def show(pretty=None):
+	if not pretty:
 		return json.dumps(app._config["probe"])
 	else:
 		return json.dumps(app._config["probe"],indent=4)
