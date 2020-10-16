@@ -965,3 +965,111 @@ DEBUG:root:Query_complete
 DEBUG:root:Send_stop_message
 DEBUG:root:stopping
 INFO:root:daemon_has_stoped
+DEBUG:root:Send_daemon_message
+DEBUG:root:starting
+INFO:root:Daemonize_off
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+DEBUG:root:PID=None
+DEBUG:root:daemonizing
+INFO:root:Daemon_Hi_8516
+INFO:root:Daemon_Hi_8518
+INFO:root:Daemon_Hi_8518
+INFO:root:Daemon_Hi_8519
+DEBUG:root:End_of_dup2
+INFO:root:Daemon_is_now_running_8519
+INFO:root:Daemonize_complete
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=79ea4aa18279331e93d339fca52a642e
+INFO:root:UI_is_now_running
+INFO:werkzeug: * Running on http://127.0.0.1:51470/ (Press CTRL+C to quit)
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_00
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:root:Send_stop_message
+DEBUG:root:stopping
+INFO:root:daemon_has_stoped
+DEBUG:root:Send_start_message
+DEBUG:root:starting
+INFO:root:Daemonize_off
+DEBUG:root:config_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:keytoken=788b0a1448a85881c19f40bf0d546fb9
+INFO:root:UI_is_now_running
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+INFO:werkzeug: * Running on http://127.0.0.1:51505/ (Press CTRL+C to quit)
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_01
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_01
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_02
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_02
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_03
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Empty_result
+DEBUG:root:Query_complete
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+INFO:root:Start_query
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_04
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 172.16.1.70:80
+DEBUG:urllib3.connectionpool:http://172.16.1.70:80 "POST /zabbix/api_jsonrpc.php HTTP/1.1" 200 None
+DEBUG:root:writing_to_/Users/liangzhenning/Desktop/work/work_project/zabbix_api_v6/probe/zabbix_probe@20201016_11_04
+DEBUG:root:Query_complete
+INFO:root:Daemonize_off
+INFO:root:UI_is_now_running
+INFO:werkzeug: * Running on http://127.0.0.1:51571/ (Press CTRL+C to quit)
+INFO:root:Start_query
+INFO:root:Start_query
+INFO:root:Empty_result
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2020 11:06:59] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:root:Start_query
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2020 11:07:02] "[37mGET /show HTTP/1.1[0m" 200 -
+INFO:root:Daemon_Hi_8597
+INFO:root:Daemon_Hi_8599
+INFO:root:Daemon_Hi_8599
+INFO:root:Daemon_Hi_8600
+INFO:root:Daemon_is_now_running_8600
+INFO:root:Daemonize_complete
+INFO:root:UI_is_now_running
+INFO:werkzeug: * Running on http://127.0.0.1:51604/ (Press CTRL+C to quit)
+INFO:root:Start_query
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2020 11:08:27] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2020 11:08:29] "[37mGET /show HTTP/1.1[0m" 200 -
+INFO:root:Start_query
+INFO:root:Empty_result
+INFO:root:Start_query
+INFO:root:daemon_has_stoped

@@ -10,6 +10,7 @@ class D(daemon):
 		self.pidfile = pwd+"/.pidfile"
 		self.conf_Path = pwd+"/midware.conf"
 		self.out_Dir = pwd+"/probe/"
+		self.log_path = pwd+"/.midware.log"
 		self.config = {}
 
 	def config_setup(self):
@@ -27,10 +28,6 @@ class D(daemon):
 			with open(self.conf_Path, "w") as fp:
 				json.dump(self.config,fp, indent=4)
 
-	def ui_run(self):
-		zui.app._config=self.config
-		zui.app.run(host="127.0.0.1", port=0)
-
 	def run(self):
 		# set up config and login to zabbix
 		self.config_setup()
@@ -39,7 +36,8 @@ class D(daemon):
 		
 		# start ui thread
 		try:
-			ui = threading.Thread(target=self.ui_run, args=(self,))
+			zui.app._config = self.config
+			ui = threading.Thread(target=zui.app.run, kwargs={"host":"127.0.0.1","port":0})
 			ui.start()
 		except:
 			logging.exception("UI_error")
@@ -60,20 +58,23 @@ class D(daemon):
 
 
 if __name__ == "__main__":
-	logging.basicConfig(level=logging.DEBUG, filename=os.getcwd()+'/midware.log')
+	logging.basicConfig(level=logging.INFO, filename=os.getcwd()+'/midware.log')
 	if len(sys.argv)==2:
 		APP = D(os.getcwd())
-		if sys.argv[1] == "start":
-			logging.debug("Send_start_message")
+		if sys.argv[1] == "daemon":
+			logging.debug("Send_daemon_message")
 			APP.start()
-		if sys.argv[1] == "restart":
+		elif sys.argv[1] == "restart":
 			logging.debug("Send_restart_message")
 			APP.restart()
-		if sys.argv[1] == "stop":
+		elif sys.argv[1] == "stop":
 			logging.debug("Send_stop_message")
 			APP.stop()
+		elif sys.argv[1] == "start":
+			logging.debug("Send_start_message")
+			APP.start(if_daemon=False)
 		else :
 			logging.error("Unkown argument")
 	else:
 		print("usage:")
-		print("\tpython3 main.py start|restart|stop")
+		print("\tpython3 main.py start|restart|stop|daemon")

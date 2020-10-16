@@ -13,11 +13,11 @@ def index():
 			"zabbix midware UI:\n"+
 			"	index:\n"+
 			"		1. ip:port/zabbix/show\n"+
-			"		2. ip:port/zabbix/update"
+			"		2. ip:port/zabbix/update\n"
 		)
 
 @app.route('/show', methods=['GET'])
 def show():
 	return app._config
 
-#@app.route('/', methods=['POST'])
+#@app.route('/update', methods=['POST'])

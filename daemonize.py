@@ -70,27 +70,31 @@ class daemon:
 		except:
 			pass
 
-	def start(self):
+	def start(self, if_daemon=True):
 		"""Start the daemon."""
 		logging.debug("starting")
-		# Check for a pidfile to see if the daemon already runs
-		try:
-			with open(self.pidfile,'r') as pf:
+		if if_daemon:
 
-				pid = int(pf.read().strip())
+			# Check for a pidfile to see if the daemon already runs
+			try:
+				with open(self.pidfile,'r') as pf:
 
-		except IOError:
-			pid = None
-		logging.debug("PID:"+str(pid))
-		if pid:
-			message = "pidfile {0} already exist. " + \
-					"Daemon already running?\n"
-			sys.stderr.write(message.format(self.pidfile))
-			sys.exit(1)
-		
-		# Start the daemon
-		self.daemonize()
-		logging.debug("Daemonize_complete")
+					pid = int(pf.read().strip())
+
+			except IOError:
+				pid = None
+			logging.debug("PID="+str(pid))
+			if pid:
+				message = "pidfile {0} already exist. " + \
+						"Daemon already running?\n"
+				sys.stderr.write(message.format(self.pidfile))
+				sys.exit(1)
+			
+			# Start the daemon
+			self.daemonize()
+			logging.info("Daemonize_complete")
+		else:
+			logging.info("Daemonize_off")
 		self.run()
 
 	def stop(self):
