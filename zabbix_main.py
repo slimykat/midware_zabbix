@@ -39,7 +39,7 @@ class D(daemon):
 		# start ui thread
 		try:
 			zui.app._config = self.config
-			ui = threading.Thread(target=zui.app.run, kwargs=zabbix["UI_address"])
+			ui = threading.Thread(target=zui.app.run, kwargs=zabbix["UI_address"], daemon=True)
 			ui.start()
 		except:
 			logging.exception("UI_error")
