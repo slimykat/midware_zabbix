@@ -89,11 +89,14 @@ Possible values:
 3 - numeric unsigned;
 4 - text. 
 """
-def bulk_query(c, dir_path):
+def bulk_query(c):
     # extract from config
     config = c.copy()
     probe = config["probe"]
     zabbix = config["zabbix"]
+    outpath = zabbix["out_Dir"]
+    if not outpath.endswith("/"):
+        outpath += "/"
 
     # record the query time (AKA current time)
     t = datetime.datetime.now()
@@ -116,13 +119,13 @@ def bulk_query(c, dir_path):
             payload = item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)
 
             # set up for file IO
-            file_name = dir_path+str(probe_type)+"@"+now
+            file_name = outpath+str(probe_type)+"@"+now
 
             # assign the task to another thread
             t = threading.Thread(
                 target=json2csv, 
                 args=(payload, itemlist, file_name),
-                kwargs={"attr_entry":zabbix["kwargs"][0], "clock_entry":zabbix["kwargs"][1]}
+                kwargs=zabbix["csv_entry"]
             )
             t.start() # no need to join
     logging.debug("Query_complete")

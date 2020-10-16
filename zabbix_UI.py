@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, json
 import zabbix_query as zq
 
 app = Flask(__name__)
@@ -18,6 +18,6 @@ def index():
 
 @app.route('/show', methods=['GET'])
 def show():
-	return app._config
+	return json.dumps(app._config["probe"],indent=4)
 
 #@app.route('/update', methods=['POST'])

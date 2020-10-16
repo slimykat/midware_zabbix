@@ -9,7 +9,6 @@ class D(daemon):
 	def __init__(self, pwd):
 		self.pidfile = pwd+"/.pidfile"
 		self.conf_Path = pwd+"/midware.conf"
-		self.out_Dir = pwd+"/probe/"
 		self.log_path = pwd+"/.midware.log"
 		self.config = {}
 
@@ -20,6 +19,9 @@ class D(daemon):
 			atexit.register(self._config_record)
 		except:
 			logging.exception("config_failed")
+			sys.exit(1)
+		if not os.path.is_dir(self.config["zabbix"]["out_Dir"]):
+			logging.error("Output_Directory_DNE")
 			sys.exit(1)
 		logging.debug("config_complete")
 	
@@ -37,7 +39,7 @@ class D(daemon):
 		# start ui thread
 		try:
 			zui.app._config = self.config
-			ui = threading.Thread(target=zui.app.run, kwargs={"host":"127.0.0.1","port":0})
+			ui = threading.Thread(target=zui.app.run, kwargs=zabbix["UI_address"])
 			ui.start()
 		except:
 			logging.exception("UI_error")
@@ -47,7 +49,7 @@ class D(daemon):
 		while(True):
 			zq.extend_liftime()
 			try:
-				zq.bulk_query(self.config, self.out_Dir)
+				zq.bulk_query(self.config)
 			except:
 				logging.exception("Error_while_query")
 				sys.exit(1)
