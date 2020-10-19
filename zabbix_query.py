@@ -130,6 +130,19 @@ def bulk_query(c):
             t.start() # no need to join
     logging.debug("Query_complete")
 
+def id_validate(itemid):
+    if type(itemid) != int:
+        return {"error":{"code":-1,"message":"INPUT_ERROR:only_accept_int"}}
+    result = item_attr_get(itemid)["result"]
+    if result:
+        dtype = result[0]['value_type']
+        name = result[0]['name']
+        itemid = result[0]['itemid']
+        probe_server = result[0]["applications"][0]["name"]
+        return {"result":[dtype,itemid,name,probe_server]}
+    else:
+        return {"error":{"code":0,"message":"EMPTY_RESULT:item_DNE"}}
+
 ##################################################
 # the following functions are used for dev ->
 ##################################################
@@ -162,13 +175,23 @@ def item_get(item_id):
     }}}
     return query(item_jsonrpc)
 
-def item_attr_get(item_name, host_name):
+def itemid_get(item_name, host_name):
     attr_get_jsonrpc = {**prot, **{
         "method": "item.get",
         "params":{
             "filter": {"name":item_name},
             "host": host_name,
             "output":["itemids","name","value_type", "hostid"]
+    }}}
+    return query(attr_get_jsonrpc)
+
+def item_attr_get(itemid):
+    attr_get_jsonrpc = {**prot, **{
+        "method": "item.get",
+        "params":{
+            "itemids":itemid,
+            "selectApplications":["name"],
+            "output":["itemids","name","value_type"]
     }}}
     return query(attr_get_jsonrpc)
 
