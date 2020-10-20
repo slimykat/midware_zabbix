@@ -139,7 +139,7 @@ def id_validate(itemid):
         name = result[0]['name']
         itemid = result[0]['itemid']
         probe_server = result[0]["applications"][0]["name"]
-        return {"result":[dtype,itemid,name,probe_server]}
+        return {dtype:{itemid:{"name":name,"probe_server":probe_server}}}
     else:
         return {"error":{"code":0,"message":"EMPTY_RESULT:item_DNE"}}
 

@@ -10,8 +10,9 @@ def index():
 	return(
 			"zabbix midware UI:\n"+
 			"	index:\n"+
-			"		1. ip:port/zabbix/show\n"+
-			"		2. ip:port/zabbix/update\n"
+			"[GET]	1. ip:port/zabbix/show\n"+
+			"[POST]	2. ip:port/zabbix/update\n"+
+			"[POST]	3. ip:port/zabbix/delete\n"
 		)
 
 @app.route('/show', methods=['GET'])
@@ -22,20 +23,42 @@ def show():
 	else:
 		return json.dumps(app._config["probe"],indent=4)
 
+def merge(a, b, path=None):
+	"merges b into a"
+	if path is None: path = []
+	for key in b:
+		if key in a:
+			if isinstance(a[key], dict) and isinstance(b[key], dict):
+				merge(a[key], b[key], path + [str(key)])
+			elif a[key] == b[key]:
+				pass # same leaf value
+			else:
+				a[key] = b[key]
+				#raise Exception('Conflict at %s' % '.'.join(path + [str(key)]))
+		else:
+			a[key] = b[key]
+	return a
+
 @app.route('/update', methods=['POST'])
 def update():
 	if request.method == 'POST':
-		item = zq.id_validate(itemID)
-	    if "error" not in item:
-	        probe = app._config["probe"]["zabbix_probe"]
-	        item = item["result"]
-	        if item[0] in probe:
-	            probe = probe[item[0]]
-	            probe.update({item[1]:{"name":item[2],"probe_server":item[3]}})
-	        else:
-	            probe.update({item[0]:{item[1]:{"name":item[2],"probe_server":item[3]}}})
-	        return True
-	    else:
-	        return item
-    return False
+		itemID = request.form.get("itemID")
+		item = id_validate(int(itemID))
+		if "error" not in item:
+			probe = app._config["probe"]["zabbix_probe"]
+			merge(probe,item)
+			return {"message":"update complete"}
+		else:
+			return item
+	return {"error":{"code":-1,"message":"METHOD:only accepts POST"}}
 
+@app.route('/delete', methods=['POST'])
+def delete():
+	if request.method == 'POST':
+		itemID = request.form.get("itemID")
+		for group in list(zui.app._config["probe"]["zabbix_probe"].values()):
+			if key in group:
+				group.pop(key)
+				return {"message":"delete complete"}
+		return {"error":{"code":0,"message":"EMPTY_RESULT:item_DNE"}}
+	return {"error":{"code":-1,"message":"METHOD:only accepts POST"}}
