@@ -8,11 +8,13 @@ class daemon:
 	Usage: subclass the daemon class and override the run() method."""
 
 	def __init__(self, pidfile): 
-		self.pidfile = pidfile
-	
+		self.pidfile = "pidfile"
+		self.log_path = "log"
+
 	def daemonize(self):
 		"""Deamonize class. UNIX double fork mechanism."""
 		logging.debug("daemonizing")
+		logging.basicConfig(level=logging.INFO, filename=self.log_path)
 		try: 
 			pid = os.fork() 
 			logging.info("Daemon_Hi_"+str(os.getpid()))

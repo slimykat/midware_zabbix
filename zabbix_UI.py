@@ -1,5 +1,5 @@
 from flask import Flask, request
-import json
+import json, logging
 from zabbix_query import id_validate
 
 app = Flask(__name__)
@@ -57,6 +57,7 @@ def delete():
 	if request.method == 'POST':
 		itemID = request.form.get("itemID")
 		for group in list(app._config["probe"]["zabbix_probe"].values()):
+			logging.debug("group:"+str(list(group)))
 			if itemID in group:
 				group.pop(itemID)
 				return {"message":"delete complete"}

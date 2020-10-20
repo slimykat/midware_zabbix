@@ -60,7 +60,6 @@ class D(daemon):
 
 
 if __name__ == "__main__":
-	logging.basicConfig(level=logging.INFO, filename=os.getcwd()+'/midware.log')
 	if len(sys.argv)==2:
 		APP = D(os.getcwd())
 		if sys.argv[1] == "daemon":
