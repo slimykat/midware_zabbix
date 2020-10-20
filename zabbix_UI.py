@@ -57,8 +57,8 @@ def delete():
 	if request.method == 'POST':
 		itemID = request.form.get("itemID")
 		for group in list(zui.app._config["probe"]["zabbix_probe"].values()):
-			if key in group:
-				group.pop(key)
+			if itemID in group:
+				group.pop(itemID)
 				return {"message":"delete complete"}
 		return {"error":{"code":0,"message":"EMPTY_RESULT:item_DNE"}}
 	return {"error":{"code":-1,"message":"METHOD:only accepts POST"}}
