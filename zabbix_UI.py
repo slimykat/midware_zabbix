@@ -56,7 +56,7 @@ def update():
 def delete():
 	if request.method == 'POST':
 		itemID = request.form.get("itemID")
-		for group in list(zui.app._config["probe"]["zabbix_probe"].values()):
+		for group in list(app._config["probe"]["zabbix_probe"].values()):
 			if itemID in group:
 				group.pop(itemID)
 				return {"message":"delete complete"}
