@@ -112,7 +112,7 @@ def bulk_query(c):
     # bulk query for each group
     for probe_type, groups in probe.items():        # for the definition of the layout
         # set up for file IO
-        file_name = outpath+str(probe_type)+"@"+now
+        file_name = outpath+str(probe_type)+"@"+now+".csv"
         
         for dtype, itemlist in groups.items():  # plz check the document
 
