@@ -1,5 +1,4 @@
 from daemonize import daemon
-from flask import request
 import json, os, sys, datetime, time, logging, atexit, threading
 import zabbix_query as zq 
 import zabbix_UI as zui

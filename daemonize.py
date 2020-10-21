@@ -2,6 +2,9 @@
 
 import sys, os, time, atexit, signal, logging
 
+def sigHandler(signo, frame):
+    sys.exit(0)
+
 class daemon:
     """A generic daemon class.
 
@@ -15,6 +18,7 @@ class daemon:
         """Deamonize class. UNIX double fork mechanism."""
         logging.debug("daemonizing")
         logging.basicConfig(level=logging.INFO, filename=self.log_path)
+        signal.signal(signal.SIGTERM, sigHandler)
         try: 
             pid = os.fork() 
             logging.info("Daemon_Hi_"+str(os.getpid()))
