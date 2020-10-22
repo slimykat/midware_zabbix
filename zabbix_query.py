@@ -1,14 +1,14 @@
 import json, os, requests, logging, sys, datetime, threading
 from c2v import json2csv
 
-prot = {"jsonrpc":"2.0","auth":None,"id":0}
-zabbix_host = ""
-User = "Admin"
-Password = "zabbix"
+_prot = {"jsonrpc":"2.0","auth":None,"id":0}
+_zabbix_host = ""
+_User = "Admin"
+_Password = "zabbix"
 
 def query(jsonrpc):
     #test start
-    url = "http://"+zabbix_host+"/zabbix/api_jsonrpc.php"
+    url = "http://"+_zabbix_host+"/zabbix/api_jsonrpc.php"
     headers = {"Content-Type": "application/json"}
     
     response = requests.post(url, data=json.dumps(jsonrpc), headers=headers).json()
@@ -20,29 +20,29 @@ def query(jsonrpc):
 
 def login(host="", user = "", password=""):
     # write to global variable if given any
-    global zabbix_host, User, Password
+    global _zabbix_host, _User, _Password
     if host :
-        zabbix_host = host
+        _zabbix_host = host
     if user:
-        User = user
+        _User = user
     if password:
-        Password = password
+        _Password = password
 
     # reset auth key, empty auth key is required for zabbix login
-    prot.update({"auth":None})
+    _prot.update({"auth":None})
 
-    jsonrpc = {**prot,**{
+    jsonrpc = {**_prot,**{
         "method":"user.login",
         "params":{
-            "user": User,
-            "password": Password
+            "user": _User,
+            "password": _Password
     }}}
     result = query(jsonrpc)
 
     if 'result' in result:
         key = result['result']
         logging.debug("keytoken=" + key)
-        prot.update({"auth":key})
+        _prot.update({"auth":key})
     else:
         logging.error("Loging_failed")
         return False
@@ -51,9 +51,9 @@ def login(host="", user = "", password=""):
 def extend_lifetime():
     life_rpc = {
         "jsonrpc": "2.0",
-        "method": "user.checkAuthentication",
+        "method": "_user.checkAuthentication",
         "params": {
-            "sessionid": prot["auth"]
+            "sessionid": _prot["auth"]
         },
         "id": 1
     }
@@ -63,7 +63,7 @@ def extend_lifetime():
         logging.warning("Run_Without_Login")
 
 def item_hist_get(itemid, dtype, limit=None, time_from=0, time_till = None):
-    history_jsonrpc = {**prot, **{
+    history_jsonrpc = {**_prot, **{
         "method": "history.get",
         "params":{
             "itemids":itemid,
@@ -149,7 +149,7 @@ def id_validate(itemid):
 # the following functions are used for dev ->
 ##################################################
 def hostid_get(host_name_list):
-    id_jsonrpc = {**prot, **{
+    id_jsonrpc = {**_prot, **{
         "method":"host.get", 
         "params":{
             "output":["hostid","name"],
@@ -158,7 +158,7 @@ def hostid_get(host_name_list):
     return query(id_jsonrpc)
 
 def itemlist_get(host_name=None, host_id=None, filter_dict={}):
-    itemlist_jsonrpc = {**prot, **{
+    itemlist_jsonrpc = {**_prot, **{
         "method": "item.get",
         "params":{
             "hostids": host_id,
@@ -169,7 +169,7 @@ def itemlist_get(host_name=None, host_id=None, filter_dict={}):
     return query(itemlist_jsonrpc)
 
 def item_get(item_id):
-    item_jsonrpc = {**prot, **{
+    item_jsonrpc = {**_prot, **{
         "method": "item.get",
         "params":{
             "itemids": item_id,
@@ -178,7 +178,7 @@ def item_get(item_id):
     return query(item_jsonrpc)
 
 def itemid_get(item_name, host_name):
-    attr_get_jsonrpc = {**prot, **{
+    attr_get_jsonrpc = {**_prot, **{
         "method": "item.get",
         "params":{
             "filter": {"name":item_name},
@@ -188,7 +188,7 @@ def itemid_get(item_name, host_name):
     return query(attr_get_jsonrpc)
 
 def item_attr_get(itemid):
-    attr_get_jsonrpc = {**prot, **{
+    attr_get_jsonrpc = {**_prot, **{
         "method": "item.get",
         "params":{
             "itemids":itemid,
