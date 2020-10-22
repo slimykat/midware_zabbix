@@ -2,6 +2,7 @@ from daemonize import daemon
 import json, os, sys, datetime, time, logging, atexit, threading
 import zabbix_query as zq 
 import zabbix_UI as zui
+from logging.handlers import RotatingFileHandler
 
 class D(daemon):
 
@@ -11,11 +12,16 @@ class D(daemon):
         self.log_path = pwd+"/.midware.log"
         self.config = {}
 
+        logging.getLogger().addHandler(logging.StreamHandler()) # write to stderr
+        logging.getLogger().setLevel(logging.INFO) # logging level
+        handler = RotatingFileHandler(self.log_path, maxBytes=6000, backupCount=7)
+        logging.getLogger().addHandler(handler) # log file
+
     def config_setup(self):
         try:
             with open(self.conf_Path) as fp:
                 self.config = json.load(fp)
-            atexit.register(self._config_record)
+            atexit.register(self._config_record) # record the config when exiting
         except:
             logging.exception("config_failed")
             sys.exit(1)

@@ -122,13 +122,15 @@ def bulk_query(c):
             payload = item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)            
 
             # assign the task to another thread
-            t = threading.Thread(
+            thd = threading.Thread(
                 target=json2csv, 
                 args=(payload, itemlist, file_name),
                 kwargs=zabbix["csv_entry"]
             )
-            t.start() # no need to join
-    logging.debug("Query_complete")
+            thd.start() # no need to join
+    t2 = datetime.datetime.now()
+    spent = (t2-t).total_seconds()
+    logging.info("Query_spent_"+str(spent)+"_seconds")
 
 def id_validate(itemid):
     if type(itemid) != int:
