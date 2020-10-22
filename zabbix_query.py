@@ -51,7 +51,7 @@ def login(host="", user = "", password=""):
 def extend_lifetime():
     life_rpc = {
         "jsonrpc": "2.0",
-        "method": "_user.checkAuthentication",
+        "method": "user.checkAuthentication",
         "params": {
             "sessionid": _prot["auth"]
         },
