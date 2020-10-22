@@ -1,5 +1,5 @@
 import json, os, requests, logging, sys, datetime, threading
-from c2v import json2csv
+from j2c import json2csv
 
 _prot = {"jsonrpc":"2.0","auth":None,"id":0}
 _zabbix_host = ""
