@@ -1,39 +1,21 @@
 # midware_zabbix
 
+[hackmd document v2.0](https://hackmd.io/@mcnlab538/Bk3V7yDPD)
+[hackmd document v2.1 NYI](https://hackmd.io/@mcnlab538/Bk3V7yDPD)
 
+## dev note
 
-def query(jsonrpc):
-# the core function, would be used in other functions
+v2.1.0
+1. added argparse
+2. change config so that some argument would not be passed from config
 
-#########################################################
-### functions that were designed for automated queries
+prep on adding the midware to systemd service
 
-def login(zabbix_ip_port, user = "Admin", password="zabbix"):
-# log in the given zabbix host, the query would return the token for Authentication
+v2.0.2
+1. endpoints, including show and update config
 
-def item_hist_get(itemid, dtype, zabbix_ip_port,\
-    limit=1, time_from=-1, time_till = None):
-# the function would query the newest ${limit} message(s) in the time segment defined by the two time argument (from ${time_from} to ${time_till})
+v2.0.1
+1. added daemonized functions
+2. running query with threading
+3. basic framework complete
 
-""" History object types to return. (dtype)
-
-Possible values:
-0 - numeric float;
-1 - character;
-2 - log;
-3 - numeric unsigned;
-4 - text. 
-"""
-#########################################################
-### functions for inspecting data
-
-def hostid_get(host_name_list, zabbix_ip_port):
-# given list of host name, return their ids
-
-def itemlist_get(host_id, zabbix_ip_port):
-# given host's id, return the host's every itemid, item name, and thier dtype
-
-def item_get(item_id, zabbix_ip_port):
-# given item id, return its every attribute
-
-#########################################################
