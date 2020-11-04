@@ -1,5 +1,4 @@
 """Generic linux daemon base class for python 3.x."""
-
 import sys, os, time, atexit, signal, logging
 
 def sigHandler(signo, frame):
@@ -10,15 +9,13 @@ class daemon:
 
     Usage: subclass the daemon class and override the run() method."""
 
-    def __init__(self, pidfile):
+    def __init__(self):
         self.pidfile = "pidfile"
-        self.log_path = "log"
+        signal.signal(signal.SIGTERM, sigHandler) # calls sys.exit when receiving SIGTERM
 
     def daemonize(self):
         """Deamonize class. UNIX double fork mechanism."""
-        logging.debug("daemonizing")
-
-        signal.signal(signal.SIGTERM, sigHandler) # calls sys.exit when receiving SIGTERM
+        logging.debug("start_daemonize")
 
         try: 
             pid = os.fork() 

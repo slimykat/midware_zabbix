@@ -19,9 +19,9 @@ def index():
 def show():
     pretty = request.args.get('pretty',"deFault")
     if (pretty == "deFault"):
-        return json.dumps(app._config["probe"])
+        return json.dumps(app._config)
     else:
-        return json.dumps(app._config["probe"],indent=4)
+        return json.dumps(app._config,indent=4)
 
 def merge(a, b, path=None):
     "merges b into a"

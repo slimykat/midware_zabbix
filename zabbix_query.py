@@ -89,12 +89,11 @@ Possible values:
 3 - numeric unsigned;
 4 - text. 
 """
-def bulk_query(c):
+def bulk_query(c, outpath):
     # extract from config
     config = c.copy()
     probe = config["probe"]
     zabbix = config["zabbix"]
-    outpath = zabbix["out_Dir"]
     if not outpath.endswith("/"):
         outpath += "/"
 
@@ -108,16 +107,13 @@ def bulk_query(c):
     time_from = datetime.datetime(t.year, t.month, t.day, t.hour, t.minute, 0, 0) - datetime.timedelta(minutes=1)
     time_from = int(time_from.timestamp())
 
-    logging.info("Start_query")
+    logging.debug("Start_query")
     # bulk query for each group
-    for probe_type, groups in probe.items():        # for the definition of the layout
-        # set up for file IO
+    for probe_type, groups in probe.items():
         file_name = outpath+str(probe_type)+"@"+now+".csv"
-        
-        for dtype, itemlist in groups.items():  # plz check the document
+        for dtype, itemlist in groups.items():  
 
             # send query message, arguments contains these information:
-            # def history_get(target(s), group, start_time, end_time)
             itemids = list(itemlist.keys())
             payload = item_hist_get(itemids, dtype, time_from=time_from, time_till=time_till)            
 
@@ -125,7 +121,7 @@ def bulk_query(c):
             thd = threading.Thread(
                 target=json2csv, 
                 args=(payload, itemlist, file_name),
-                kwargs=zabbix["csv_entry"]
+                kwargs={"attr_entry": "itemid", "clock_entry": "clock"}
             )
             thd.start() # no need to join
     t2 = datetime.datetime.now()
