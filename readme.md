@@ -5,7 +5,8 @@
 [hackmd document v2.1 NYI](https://hackmd.io/@mcnlab538/Bk3V7yDPD)
 
 ## Usage
-```bash
+```shell
+% python3 zabbix_main.py -h     
 usage: zabbix_main.py [-h] [options] {start,stop,restart,daemon}
 
 Transform Zabbix data to AIOPs format.
