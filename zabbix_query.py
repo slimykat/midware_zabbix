@@ -14,7 +14,7 @@ def query(jsonrpc):
     response = requests.post(url, data=json.dumps(jsonrpc), headers=headers).json()
     if 'error' in response:
         logging.warning("zabbix_query.query:"+str(response['error']))
-    assert('result' in result)
+    assert('result' in response)
     return response
 
 def login(host="", user = "", password=""):
