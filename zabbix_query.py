@@ -44,6 +44,8 @@ def login(host="", user = "", password=""):
     except Exception as exp:
         logging.warning("zabbix_query.login:Login_failed:{}".format(exp))
         sys.exit(1)
+    key = result['result']
+    _prot.update({"auth":key})
 
 def extend_lifetime():
     life_rpc = {
