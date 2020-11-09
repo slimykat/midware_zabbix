@@ -12,10 +12,9 @@ def query(jsonrpc):
     headers = {"Content-Type": "application/json"}
     
     response = requests.post(url, data=json.dumps(jsonrpc), headers=headers).json()
-    if("error" in response):
-        logging.error(str(response['error']))
-
-        sys.exit(1)
+    if 'error' in response:
+        logging.warning("zabbix_query.query:"+str(response['error']))
+    assert('result' in result)
     return response
 
 def login(host="", user = "", password=""):
@@ -23,6 +22,9 @@ def login(host="", user = "", password=""):
     global _zabbix_host, _User, _Password
     if host :
         _zabbix_host = host
+    if not _zabbix_host:
+        logging.error("zabbix_query.login:Missing_Host")
+        sys.exit(1)
     if user:
         _User = user
     if password:
@@ -37,16 +39,11 @@ def login(host="", user = "", password=""):
             "user": _User,
             "password": _Password
     }}}
-    result = query(jsonrpc)
-
-    if 'result' in result:
-        key = result['result']
-        logging.debug("keytoken=" + key)
-        _prot.update({"auth":key})
-    else:
-        logging.error("Loging_failed")
-        return False
-    return True
+    try:
+        result = query(jsonrpc)
+    except Exception as exp:
+        logging.warning("zabbix_query.login:Login_failed:{}".format(exp))
+        sys.exit(1)
 
 def extend_lifetime():
     life_rpc = {
@@ -57,10 +54,8 @@ def extend_lifetime():
         },
         "id": 1
     }
-    if life_rpc["params"]["sessionid"]:
-        query(life_rpc)
-    else:
-        logging.warning("Run_Without_Login")
+    query(life_rpc)
+
 
 def item_hist_get(itemid, dtype, limit=None, time_from=0, time_till = None):
     history_jsonrpc = {**_prot, **{
@@ -77,7 +72,7 @@ def item_hist_get(itemid, dtype, limit=None, time_from=0, time_till = None):
     }}}
     result = query(history_jsonrpc)
     if not result['result']:
-        logging.info("Empty_result")
+        logging.info("zabbix_query.item_hist_get:Empty_result:"+str(itemid))
     return result['result']
 """
 History object types to return. (dtype)
@@ -126,7 +121,7 @@ def bulk_query(c, outpath):
             thd.start() # no need to join
     t2 = datetime.datetime.now()
     spent = (t2-t).total_seconds()
-    logging.info("Query_spent_"+str(spent)+"_seconds")
+    logging.info("zabbix_query.bulk_query:Query_time_spent:"+str(spent)+"s")
 
 def id_validate(itemid):
     if type(itemid) != int:
