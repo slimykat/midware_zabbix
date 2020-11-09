@@ -63,7 +63,7 @@ class D(daemon):
             logging.error("MAIN.D.run:Output_Directory_DNE")
             sys.exit(1)
         zabbix = self.config["zabbix"]
-        login(host=zabbix["host"], user=zabbix["user"], password=zabbix["password"])
+        zq.login(host=zabbix["host"], user=zabbix["user"], password=zabbix["password"])
         # start ui thread
         try:
             zui.app._config = self.config["probe"]
