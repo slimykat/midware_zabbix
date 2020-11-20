@@ -24,7 +24,7 @@ def login(host="", user = "", password=""):
         _zabbix_host = host
     if not _zabbix_host:
         logging.error("zabbix_query.login:Missing_Host")
-        sys.exit(1)
+        sys.exit(0)
     if user:
         _User = user
     if password:
@@ -44,6 +44,9 @@ def login(host="", user = "", password=""):
     except Exception as exp:
         logging.warning("zabbix_query.login:Login_failed:{}".format(exp))
         sys.exit(1)
+    if "error" in result:
+        logging.warning("zabbix_query.login:Error_result:{}".format(result["error"]))
+        sys.exit(0)
     key = result['result']
     _prot.update({"auth":key})
 

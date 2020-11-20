@@ -27,7 +27,7 @@ class D(daemon):
             logging.getLogger().addHandler(handler) # log file
         except:
             logging.exception("MAIN.D.__init__:cannot_create_logfile")
-            sys.exit(1)
+            sys.exit(0)
 
         level = logging.WARNING-10*args.v   # logging level
         if args.v:
@@ -46,7 +46,7 @@ class D(daemon):
             atexit.register(self._config_record) # record the config when exiting
         except Exception as exp:
             logging.error("MAIN.D.config_setup:Failed_to_read_config:{}".format(exp))
-            sys.exit(1)
+            sys.exit(0)
 
         logging.debug("MAIN.D.config_setup:complete_setup")
     
@@ -61,7 +61,7 @@ class D(daemon):
         self.config_setup()
         if not os.path.isdir(self.out_Dir):
             logging.error("MAIN.D.run:Output_Directory_DNE")
-            sys.exit(1)
+            sys.exit(0)
         zabbix = self.config["zabbix"]
         zq.login(host=zabbix["host"], user=zabbix["user"], password=zabbix["password"])
         # start ui thread
