@@ -1,5 +1,5 @@
 import json, os, requests, logging, sys, datetime, threading
-from j2c import json2csv
+import j2c 
 
 _prot = {"jsonrpc":"2.0","auth":None,"id":0}
 _zabbix_host = ""
@@ -119,7 +119,7 @@ def bulk_query(c, outpath):
 
             # assign the task to another thread
             thd = threading.Thread(
-                target=json2csv, 
+                target=j2c.json2csv, 
                 args=(payload, itemlist, file_name),
                 kwargs={"attr_entry": "itemid", "clock_entry": "clock"}
             )
@@ -128,7 +128,7 @@ def bulk_query(c, outpath):
     spent = (t2-t).total_seconds()
     logging.info("zabbix_query.bulk_query:Query_time_spent:"+str(spent)+"s")
 
-def id_validate(itemid):
+def id_validate(itemid, server="-"):
     if type(itemid) != int:
         return {"error":{"code":-1,"message":"INPUT_ERROR:only_accept_int"}}
     result = item_attr_get(itemid)["result"]
@@ -136,7 +136,8 @@ def id_validate(itemid):
         dtype = result[0]['value_type']
         name = result[0]['name']
         itemid = result[0]['itemid']
-        probe_server = result[0]["applications"][0]["name"]
+        #probe_server = result[0]["applications"][0]["name"]
+        probe_server = server
         return {dtype:{itemid:{"name":name,"probe_server":probe_server}}}
     else:
         return {"error":{"code":0,"message":"EMPTY_RESULT:item_DNE"}}
@@ -188,7 +189,7 @@ def item_attr_get(itemid):
         "method": "item.get",
         "params":{
             "itemids":itemid,
-            "selectApplications":["name"],
+            #"selectApplications":["name"],
             "output":["itemids","name","value_type"]
     }}}
     return query(attr_get_jsonrpc)

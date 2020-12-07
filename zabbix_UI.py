@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json, logging
 from zabbix_query import id_validate
-
+from zabbix_query import itemlist_get
 app = Flask(__name__)
 app._config=""
 
@@ -9,10 +9,11 @@ app._config=""
 def index():
     return(
             "zabbix midware UI:\n"+
-            "    index:\n"+
-            "[GET]    1. ip:port/zabbix/show\n"+
-            "[POST]    2. ip:port/zabbix/update\n"+
-            "[POST]    3. ip:port/zabbix/delete\n"
+            "   index:\n"+
+            "[GET]      1. ip:port/zabbix/show\n"+
+            "[GET]      2. ip:port/zabbix/init\n"+
+            "[POST]     3. ip:port/zabbix/update\n"+
+            "[POST]     4. ip:port/zabbix/delete\n"
         )
 
 @app.route('/show', methods=['GET'])
@@ -39,14 +40,30 @@ def merge(a, b, path=None):
             a[key] = b[key]
     return a
 
+@app.route("/init", methods=['GET'])
+def init():
+    probe = app._config["zabbix_probe"]
+    for item in itemlist_get()['result']:
+        Item = {
+            item['value_type']:{
+                item['itemid']:{
+                    "name":item['name'],
+                    "probe_server":"-"
+                    }
+                }
+            }
+        merge(probe, Item)    
+    return {"message":"init complete"}
+
 @app.route('/update', methods=['POST'])
 def update():
     if request.method == 'POST':
-        itemID = request.form.get("itemID")
-        item = id_validate(int(itemID))
+        itemID = request.form.get("itemID", default=None)
+        probe_server = request.form.get("probe_server", default="-")
+        item = id_validate(itemID, server=probe_server)
         if "error" not in item:
-            probe = app._config["probe"]["zabbix_probe"]
-            merge(probe,item)
+            probe = app._config["zabbix_probe"]
+            merge(probe, item)
             return {"message":"update complete"}
         else:
             return item
