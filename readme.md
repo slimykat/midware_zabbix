@@ -2,7 +2,9 @@
 
 [hackmd document v2.0](https://hackmd.io/@mcnlab538/Bk3V7yDPD)
 
+<!---
 [hackmd document v2.1 NYI](https://hackmd.io/@mcnlab538/Sy2gnJeYP)
+--->
 
 ## Usage
 ```shell
